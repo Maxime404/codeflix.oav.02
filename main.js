@@ -1,7 +1,8 @@
 const fs = require('fs');
 const { duplicate } = require('./ex01');
 const { transform } = require('./ex02');
-const { voca } = require('voca');
+const { transformStdout } = require('./ex03');
+const { csv2json } = require('./ex04');
 
 const args = process.argv.slice(2);
 
@@ -17,9 +18,14 @@ if (!fs.existsSync(fileName)) {
     process.exit(0);
 }
 
-duplicate(fileName);
+/*duplicate(fileName);
 transform(fileName, /Chopin/g, function(strToReplace) {
     return 'Fabian';
     //return strToReplace.toUpperCase();
 });
+transformStdout(fileName, /Chopin/g, function(strToReplace) {
+    return 'Fabian';
+    //return strToReplace.toUpperCase();
+}, in_stdout = true);*/
 
+csv2json(fileName);
